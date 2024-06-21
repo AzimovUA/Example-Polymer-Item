@@ -32,12 +32,7 @@ public class NewItems {
         builder.displayName(Text.of("Polymer Items"));
 
         // Add items to the group
-        builder.entries(new ItemGroup.EntryCollector() {
-            @Override
-            public void accept(ItemGroup.DisplayContext displayContext, ItemGroup.Entries entries) {
-                entries.add(NewItems.POLYMER_ITEM);
-            }
-        });
+        builder.entries((displayContext, entries) -> entries.add(NewItems.POLYMER_ITEM));
 
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(TestPolymere.MOD_ID), polymerGroup);
